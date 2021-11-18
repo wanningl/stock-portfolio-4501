@@ -17,14 +17,21 @@ Consider that to implement the cost method, you'll need to be storing the purcha
 
 Commit this file to your repository and push it to GitHub using GitHub Desktop, with a suitable commit message.
 """
+class Shares:
+    def __init__(self, name, number, price):
+        self.name = name
+        self.number = number
+        self.price = price
+        
+
 
 class Portfolio:
     def __init__(self):
         self.stocks=[]
-    def buy(self,name,shares,price):
-        self.stocks.append((name,shares,price))
+    def buy(self,shares):
+        self.stocks.append(shares)
 
     def cost(self):
-        return sum(shares*price for _,shares,price in self.stocks)
+        return sum(shares.number*shares.price for shares in self.stocks)
 
         
